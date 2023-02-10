@@ -1,5 +1,9 @@
+<script setup>
+import { NButton } from "naive-ui"
+</script>
+
 <template>
   <div>
-    <NuxtWelcome />
+    <n-button type="primary" size="medium">click</n-button>    
   </div>
 </template>
