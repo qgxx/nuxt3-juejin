@@ -1,5 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+    modules: [
+      'nuxt-windicss',
+    ],
     build: {
         transpile:
           process.env.NODE_ENV === 'production'
@@ -10,7 +13,7 @@ export default defineNuxtConfig({
                 '@juggle/resize-observer'
               ]
             : ['@juggle/resize-observer']
-      },
+    },
     vite: {
         optimizeDeps: {
           include:
@@ -18,5 +21,5 @@ export default defineNuxtConfig({
               ? ['naive-ui', 'vueuc', 'date-fns-tz/esm/formatInTimeZone']
               : []
         }
-      }
+    },
 })
