@@ -2,6 +2,7 @@
 export default defineNuxtConfig({
     modules: [
       'nuxt-windicss',
+      '@pinia/nuxt'
     ],
     build: {
         transpile:
