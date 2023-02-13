@@ -2,8 +2,10 @@
 </script>
 
 <template>
-  
+  <header>
+    
+  </header>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 </style>
