@@ -3,7 +3,8 @@ import { defineStore } from 'pinia'
 export const useTopTapStore = defineStore('toptap', {
     state: () => {
         return {
-            isShow: Boolean  
+            isShow: Boolean,
+            windowWidth: Number
         }
-    }
+    } 
 })

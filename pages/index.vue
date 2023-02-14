@@ -3,7 +3,7 @@
 
 <template>
   <div>
-    11
+    首页
   </div>
 </template>
 
