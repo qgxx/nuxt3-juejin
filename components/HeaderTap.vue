@@ -1,5 +1,4 @@
 <script setup>
-import { link } from 'fs';
 import {useTopTapStore } from '../stores/toptap'
 
 const navs = reactive([
