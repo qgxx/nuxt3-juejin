@@ -36,19 +36,19 @@ const taps = reactive([
 ])
 
 const toptap = useTopTapStore()
-toptap.isShow = true
-console.log('header-tap is show: ' + toptap.isShow)
+toptap.isShowTopTap = true
+// console.log('header-tap is show: ' + toptap.isShow)
 
 onMounted(() => {
   toptap.windowWidth = document.documentElement.clientWidth
-  console.log('Width: ' + toptap.windowWidth)
-  console.log(toptap.windowWidth > 600 ? 'pc' : 'mobile')
+  // console.log('Width: ' + toptap.windowWidth)
+  // console.log(toptap.windowWidth > 600 ? 'pc' : 'mobile')
 })
 </script>
 
 <template>
   <header class="tap-wrapper">
-    <div class="tap" :class="[toptap.isShow ? 'tap-show' : 'tap-hidden']">
+    <div class="tap" :class="[toptap.isShowTopTap ? 'tap-show' : 'tap-hidden']">
       <div class="tap-left">
         <NuxtLink to="/" class="logo">
           <img src="/juejin.ico" alt="juejin" />
@@ -56,10 +56,10 @@ onMounted(() => {
         <ul class="taps-pc" v-if="toptap.windowWidth > 600">
           <li v-for="tap in taps" :key="tap.id" class="tap-item"><NuxtLink :to="tap.link">{{ tap.name }}</NuxtLink></li>
         </ul>
-        <div v-else class="tap-mobile-wrapper">
+        <div v-else class="taps-mobile-wrapper">
           <button class="button-taps">{{ $route.name }}</button>
           <ul class="taps-mobile">
-            <li v-for="tap in taps" :key="tap.id" class="tap-item-mobile"><NuxtLink>{{ tap.name }}</NuxtLink></li>
+            <li v-for="tap in taps" :key="tap.id" class="tap-item-mobile"><NuxtLink :to="tap.link">{{ tap.name }}</NuxtLink></li>
           </ul>
         </div>
       </div>
@@ -118,9 +118,33 @@ onMounted(() => {
 }
 .taps-mobile-wrapper {
   position: relative;
+  display: inline-block;
 }
 .taps-mobile {
-  display: none;
+  display: block;
   position: absolute;
+  background-color: #fff;
+  box-shadow: 0 4px 4px 0 #e2dfdf;
+  z-index: 1000;
+  min-width: 9em;
+  left: -4em;
+
+  .tap-item-mobile {
+    padding: 0.2em 0;
+    cursor: pointer;
+    text-align: center;
+  }
+}
+.button-taps {
+  background-color: #fff;
+  color: #000;
+  border: none;
+  padding: 1em 0;
+  font-size: 0.9em;
+  cursor: pointer;
+  min-width: 5em;
+}
+.button-taps:hover .taps-mobile {
+  display: block;
 }
 </style>
