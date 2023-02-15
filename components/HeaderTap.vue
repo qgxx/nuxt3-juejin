@@ -37,6 +37,7 @@ const taps = reactive([
 
 const toptap = useTopTapStore()
 toptap.isShowTopTap = true
+toptap.dropDown = false
 // console.log('header-tap is show: ' + toptap.isShow)
 
 onMounted(() => {

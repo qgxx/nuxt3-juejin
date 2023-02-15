@@ -1,11 +1,13 @@
 <script setup>
+import Category from '../components/Category.vue'
 </script>
 
 <template>
   <div>
     首页
+    <Category />
   </div>
 </template>
 
-<style scoped src="../assets/media.scss">
+<style scoped>
 </style>
