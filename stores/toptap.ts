@@ -4,7 +4,8 @@ export const useTopTapStore = defineStore('toptap', {
     state: () => {
         return {
             isShowTopTap: Boolean,
-            windowWidth: Number
+            windowWidth: Number,
+            dropDown: Boolean
         }
     } 
 })

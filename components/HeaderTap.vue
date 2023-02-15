@@ -57,8 +57,8 @@ onMounted(() => {
           <li v-for="tap in taps" :key="tap.id" class="tap-item"><NuxtLink :to="tap.link">{{ tap.name }}</NuxtLink></li>
         </ul>
         <div v-else class="taps-mobile-wrapper">
-          <button class="button-taps">{{ $route.name }}</button>
-          <ul class="taps-mobile">
+          <button class="button-taps" @click="toptap.dropDown = toptap.dropDown ? false : true">{{ $route.name }}</button>
+          <ul class="taps-mobile" v-if="toptap.dropDown">
             <li v-for="tap in taps" :key="tap.id" class="tap-item-mobile"><NuxtLink :to="tap.link">{{ tap.name }}</NuxtLink></li>
           </ul>
         </div>
@@ -137,14 +137,11 @@ onMounted(() => {
 }
 .button-taps {
   background-color: #fff;
-  color: #000;
+  color: #0c51c0;
   border: none;
   padding: 1em 0;
   font-size: 0.9em;
   cursor: pointer;
   min-width: 5em;
-}
-.button-taps:hover .taps-mobile {
-  display: block;
 }
 </style>
