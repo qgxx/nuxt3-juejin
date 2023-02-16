@@ -47,7 +47,7 @@ const navs = reactive([
   position: relative;
   .main {
     position: absolute;
-    top: 3em;
+    top: 4em;
   }
 }
 </style>
