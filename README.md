@@ -1,3 +1,6 @@
+# 项目介绍
+Nuxt3的仿掘金网页，使用element-plus、naive-ui作为ui框架，使用pinia来进行状态管理，使用i18n来进行语言配置，路由、打包均为Nuxt3默认设置。
+
 # Setup
 Make sure to install the dependencies:
 
@@ -62,6 +65,12 @@ Check out the [deployment documentation](https://nuxt.com/docs/getting-started/d
 > 黄伟杰：  
 > 
 
-> 亓胜鹏：  
-> 自定义框架及其响应式  
+> 亓胜鹏(qgxx)：
+> 
+> 自定义框架及其响应式
+>   
 > 首页及其响应式
+
+# CMS
+
+# 演示地址
