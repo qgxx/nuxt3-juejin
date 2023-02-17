@@ -81,6 +81,14 @@ defineProps({
     font-size: 0.9em;
     white-space: nowrap;
     overflow: auto;
+    &::-webkit-scrollbar {
+      height: 0.5em;
+      width: 10%;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background-color: rgb(185, 244, 244);
+    }
   }
   .nav-item-mobile {
     width: 25%;
