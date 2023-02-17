@@ -70,6 +70,8 @@ Check out the [deployment documentation](https://nuxt.com/docs/getting-started/d
 > 自定义框架及其响应式
 >   
 > 首页及其响应式
+>
+> 部分主题化
 
 # CMS
 
