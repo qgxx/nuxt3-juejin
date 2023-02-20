@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import Category from '../components/Category.vue'
 import { useIndexStore } from '../stores/index'
-import { ElSelect, ElOption } from 'element-plus' 
+import { useTopTapStore } from '~~/stores/toptap'
 
 const index = useIndexStore()
+const toptap = useTopTapStore()
 
+const value = ref('')
 const navs = reactive([
     {
         id: 1,
@@ -22,52 +24,66 @@ const navs = reactive([
         type: 3,
         types: [
             {
-                name: '3天内',
+                value: '3天内',
+                label: '3天内',
                 type: 3
             },
             {
-                name: '7天内',
+                value: '7天内',
+                label: '7天内',
                 type: 7,
             },
             {
-                name: '30天内',
+                value: '30天内',
+                label: '30天内',
                 type: 30,
             },
             {
-                name: '全部',
+                value: '全部',
+                label: '全部',
                 type: 0
             }
         ]
     }
 ])
+
+onMounted(() => {
+  toptap.windowWidth = document.documentElement.clientWidth
+})
 </script>
 
 <template>
   <div class="index">
     <Category />
-    <div class="index-wrapper"></div>
-      <div class="index-main-pc">
+      <div class="index-main-pc" v-if="toptap.windowWidth >= 1000">
         <div class="main-header">
           <ul class="main-navs">
             <li class="main-nav" v-for="nav in navs" :key="nav.id" @click="index.changeNavType(nav)"
             :class="[nav.id === index.navId ? 'nav-active' : '']">{{ nav.name }}</li>
-            <el-select v-if="index.navTypes.length" size="small" placeholder="请选择" class="hot-rank">
-              <el-option v-for="type in index.navTypes" :label="type.name" :value="type.name"></el-option>
+            <el-select v-if="index.navTypes.length" size="small" placeholder="请选择" class="hot-rank" v-model="value" style="width: 5em;">
+              <el-option v-for="type in index.navTypes" :label="type.label" :value="type.value" :key="type.value"></el-option>
             </el-select>
           </ul>
         </div>
       </div>
-      <div class="index-side">小册</div>
+      <div class="index-main-mobile" v-else>
+        <div class="main-header">
+          <ul class="main-navs">
+            <li class="main-nav" v-for="nav in navs" :key="nav.id" @click="index.changeNavType(nav)"
+            :class="[nav.id === index.navId ? 'nav-active' : '']">{{ nav.name }}</li>
+            <el-select v-if="index.navTypes.length" size="small" placeholder="请选择" class="hot-rank" v-model="value" style="width: 5em;">
+              <el-option v-for="type in index.navTypes" :label="type.label" :value="type.value" :key="type.value"></el-option>
+            </el-select>
+          </ul>
+        </div>
+      </div>
+      <div class="index-side" v-if="toptap.windowWidth > 1000">小册</div>
   </div>
 </template>
 
 <style scoped lang="scss">
 .index {
   position: relative;
-  .index-wrapper {
-    position: absolute;
-    top: 4em;
-  }
 }
 .index-main-pc {
   position: absolute;
@@ -76,6 +92,13 @@ const navs = reactive([
   border-radius: 3px;
   background-color: #fff;
   margin: 0.5em 0 0 20%;
+}
+.index-main-mobile {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  border-bottom: #9e9e9e;
+  background-color: #fff;
 }
 .main-header {
   padding: 0.5em 0.75em;
@@ -96,7 +119,7 @@ const navs = reactive([
     position: absolute;
     left: 8em;
     top: 0.2em;
-    width: 1em;
+    border: none;
   }
 }
 .index-side {
