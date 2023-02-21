@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Category from '../components/Category.vue'
+import ArticleList from '../components/ArticleList.vue'
 import { useIndexStore } from '../stores/index'
 import { useTopTapStore } from '~~/stores/toptap'
 
@@ -60,20 +61,25 @@ onMounted(() => {
           <ul class="main-navs">
             <li class="main-nav" v-for="nav in navs" :key="nav.id" @click="index.changeNavType(nav)"
             :class="[nav.id === index.navId ? 'nav-active' : '']">{{ nav.name }}</li>
+
             <el-select v-if="index.navTypes.length" size="small" placeholder="请选择" class="hot-rank" v-model="value" style="width: 5em;">
               <el-option v-for="type in index.navTypes" :label="type.label" :value="type.value" :key="type.value"></el-option>
             </el-select>
+          
           </ul>
         </div>
+        <article-list></article-list>
       </div>
       <div class="index-main-mobile" v-else>
         <div class="main-header">
           <ul class="main-navs">
             <li class="main-nav" v-for="nav in navs" :key="nav.id" @click="index.changeNavType(nav)"
             :class="[nav.id === index.navId ? 'nav-active' : '']">{{ nav.name }}</li>
+
             <el-select v-if="index.navTypes.length" size="small" placeholder="请选择" class="hot-rank" v-model="value" style="width: 5em;">
               <el-option v-for="type in index.navTypes" :label="type.label" :value="type.value" :key="type.value"></el-option>
             </el-select>
+
           </ul>
         </div>
       </div>
