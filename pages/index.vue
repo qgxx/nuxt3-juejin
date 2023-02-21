@@ -82,6 +82,7 @@ onMounted(() => {
 
           </ul>
         </div>
+        <article-list></article-list>
       </div>
       <div class="index-side" v-if="toptap.windowWidth > 1000">小册</div>
   </div>
@@ -100,7 +101,7 @@ onMounted(() => {
   margin: 0.5em 0 0 20%;
 }
 .index-main-mobile {
-  position: fixed;
+  position: absolute;
   left: 0;
   width: 100%;
   border-bottom: #9e9e9e;

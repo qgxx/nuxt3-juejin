@@ -65,7 +65,7 @@ const navs = reactive([
 .nav {
   position: fixed;
   left: 0;
-  top: 4em;
+  top: 3.5em;
   width: 100%;
   background: #fff;
   border-bottom: 2px solid #eee;
@@ -99,6 +99,7 @@ const navs = reactive([
 .nav-list-mobile {
   width: 100%;
   height: 100%;
+  line-height: 1.5em;
 
   .scroll {
     display: flex;
