@@ -18,17 +18,17 @@ onMounted(() => {
     <template v-for="arc in articleList.articList">
       <div class="arc-item">
         <div class="item-header">
-          <div class="arc-auther">
+          <p class="arc-auther">
             {{ arc.auther }}
-          </div>
-          <div class="arc-cat">
-            <ul>
-                <li v-for="cat in arc.category" class="cat-item">{{ cat }}</li>
-            </ul>
-          </div>
-          <div class="arc-data">
+            <span class="bar"> | </span>
+          </p>
+          <ul class="arc-cat">
+              <li v-for="cat in arc.category" class="cat-item">{{ cat }}</li>
+              <span class="bar"> | </span>
+          </ul>
+          <p class="arc-data">
             {{ arc.date }}
-          </div>
+          </p>
         </div>
         <div class="item-mid">
           <div class="arc-title">
@@ -62,5 +62,32 @@ onMounted(() => {
       height: 10em;
       overflow-y: hidden;
     }
+}
+.item-header {
+  height: 2em;
+  align-items: center;
+  display: flex;
+  padding: 0 1em;
+  position: absolute;
+  color: #6b5e5e;
+  font-size: 0.9em;
+  .arc-cat {
+    display: flex;
+    margin: 0 1em 0 0.5em;
+    .cat-item {
+      padding: 0 0.25em;
+      cursor: pointer;
+    }
+  }
+}
+.item-mid {
+  position: absolute;
+  top: 2em;
+  height: 4em;
+  margin: auto 0;
+}
+.item-footer {
+  position: absolute;
+  bottom: 0;
 }
 </style>
