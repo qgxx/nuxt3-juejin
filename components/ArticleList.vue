@@ -5,9 +5,9 @@ const articleList = useArtcileListStore()
 
 onMounted(() => {
     for (let i = articleList.articList.length; i < 10; i++)
-        articleList.addList()
+        articleList.addArc()
     if (articleList.isAdd) {
-        articleList.addList();
+        articleList.addArc();
         articleList.isAdd = false;
     }
 })
