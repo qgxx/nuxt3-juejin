@@ -44,7 +44,7 @@ export const useArtcileListStore = defineStore('articleList', {
         }
     },
     actions: {
-        addList() {
+        addArc() {
             var myHeaders = new Headers();
             myHeaders.append("User-Agent", "Apifox/1.0.0 (https://www.apifox.cn)");
             var requestOptions = {
