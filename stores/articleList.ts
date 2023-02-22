@@ -1,5 +1,4 @@
 import { defineStore } from 'pinia'
-import { ArticleList } from '~~/.nuxt/components';
 
 export interface ArticleList {
     /**
