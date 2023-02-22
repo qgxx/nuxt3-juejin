@@ -31,7 +31,7 @@ export const useIndexStore = defineStore('index', {
                 this.navId = 0
                 this.typesId = 0
             }
-            console.log('nowNavId: '+ this.navId)
+            // console.log('nowNavId: '+ this.navId)
         }
     }
 })
